@@ -4,6 +4,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const path = require("path");
+const fs = require("fs");
 require("dotenv").config();
 
 // app config
@@ -27,9 +28,10 @@ app.use("/api/book", require("./routes/book"));
 app.use("/api/auth", require("./routes/auth"));
 
 // Serve React build
-// Serve React build
 app.use(express.static(path.join(__dirname, "../client/build")));
 console.log("Static path:", path.join(__dirname, "../client/build"));
+console.log("Build exists:", fs.existsSync(path.join(__dirname, "../client/build")));
+console.log("Build contents:", fs.readdirSync(path.join(__dirname, "../client/build")));
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build", "index.html"));
