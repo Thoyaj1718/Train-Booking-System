@@ -2,7 +2,7 @@
   "name": "railway-management-mern",
   "version": "1.0.0",
   "scripts": {
-    "build": "cd client && npm install && CI=false NODE_OPTIONS=--openssl-legacy-provider npm run build",
-    "start": "cd server && npm install && node server.js"
+    "build": "cd client && npm install && CI=false NODE_OPTIONS=--openssl-legacy-provider npm run build && cd ../server && npm install",
+    "start": "cd server && node server.js"
   }
 }
