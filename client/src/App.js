@@ -21,7 +21,7 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <Router basename="/Train-Booking-System">
+    <Router>
       <Navbar />
       <Routes>
         <Route path="/" element={<Trains />} />
