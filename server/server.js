@@ -27,7 +27,9 @@ app.use("/api/book", require("./routes/book"));
 app.use("/api/auth", require("./routes/auth"));
 
 // Serve React build
+// Serve React build
 app.use(express.static(path.join(__dirname, "../client/build")));
+console.log("Static path:", path.join(__dirname, "../client/build"));
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build", "index.html"));
